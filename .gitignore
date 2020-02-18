@@ -1,5 +1,37 @@
-# Created by https://www.gitignore.io/api/dotnetcore,aspnetcore
-# Edit at https://www.gitignore.io/?templates=dotnetcore,aspnetcore
+
+# Created by https://www.gitignore.io/api/angular,dotnetcore,aspnetcore
+# Edit at https://www.gitignore.io/?templates=angular,dotnetcore,aspnetcore
+
+### Angular ###
+## Angular ##
+# compiled output
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+bower_components/
+
+# IDEs and editors
+.idea/
+
+# misc
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
+npm-debug.log
+testem.log
+typings/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+#System Files
+.DS_Store/
 
 ### ASPNETCore ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -128,7 +160,6 @@ nCrunchTemp_*
 AutoTest.Net/
 
 # Web workbench (sass)
-.sass-cache/
 
 # Installshield output folder
 [Ee]xpress/
@@ -200,7 +231,6 @@ ClientBin/
 *.jfm
 *.pfx
 *.publishsettings
-node_modules/
 orleans.codegen.cs
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components
@@ -258,7 +288,6 @@ paket-files/
 .fake/
 
 # JetBrains Rider
-.idea/
 *.sln.iml
 
 # CodeRush
@@ -281,4 +310,4 @@ __pycache__/
 /wwwroot/node_modules
 
 
-# End of https://www.gitignore.io/api/dotnetcore,aspnetcore
+# End of https://www.gitignore.io/api/angular,dotnetcore,aspnetcore
