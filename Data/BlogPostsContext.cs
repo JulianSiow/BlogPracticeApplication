@@ -13,6 +13,6 @@ namespace Blog.Models
         {
         }
 
-        public DbSet<Blog.Models.BlogPost> BlogPost { get; set; }
+        public DbSet<Blog.Models.BlogPost> BlogPosts { get; set; }
     }
 }

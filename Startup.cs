@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Blog.Models;
+using Blog.Data;
 
 namespace Blog
 {
@@ -31,6 +32,23 @@ namespace Blog
 
             services.AddDbContext<BlogPostsContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BlogPostsContext")));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    ApplicationBuilder => ApplicationBuilder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
+            services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
+
+            // In production, the Angular files will be served from this directory
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/dist";
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
