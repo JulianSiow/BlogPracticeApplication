@@ -38,8 +38,7 @@ namespace Blog
                 options.AddPolicy("CorsPolicy",
                     ApplicationBuilder => ApplicationBuilder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                    .AllowAnyHeader());
             });
 
             services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
@@ -58,10 +57,30 @@ namespace Blog
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+            
+            //app.UseSpaStaticFiles();
+
             app.UseRouting();
+
+            //app.UseSpa(spa =>
+            //{
+            //    spa.Options.SourcePath = "ClientApp";
+
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseAngularCliServer(npmScript: "start");
+            //    }
+            //});
 
             app.UseAuthorization();
 
